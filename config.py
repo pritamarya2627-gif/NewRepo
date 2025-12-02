@@ -93,9 +93,9 @@ autoclean = []
 confirmer = {}
 file_cache: dict[str, float] = {}
 
-START_IMG_URL = ["https://files.catbox.moe/rykxfi.jpg",
-                 "https://files.catbox.moe/rykxfi.jpg",
-                 "https://files.catbox.moe/rykxfi.jpg"]
+START_IMG_URL = ["https://files.catbox.moe/gkb5rg.jpg",
+                 "https://files.catbox.moe/gkb5rg.jpg",
+                 "https://files.catbox.moe/gkb5rg.jpg"]
 
 PING_IMG_URL = getenv(
     "PING_IMG_URL", "https://files.catbox.moe/twy3oc.jpg"
