@@ -41,14 +41,14 @@ API_KEY = getenv("API_KEY", "30DxNexGenBots5b668a")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://github.com/Vivek12-0/Apple",
+    "https://files.catbox.moe/o0e6tn.mp4",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/BOTADDA")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/")
 SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/BOTADA")
 
 # Set this to True if you want the assistant to automatically leave chats after an interval
