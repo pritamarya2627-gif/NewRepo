@@ -67,8 +67,8 @@ def stream_markup_timer(_, chat_id, played, dur):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ", url="https://t.me/TgMusicBots"),
-            InlineKeyboardButton(text="ᴀᴅᴅ ɪᴛ",url=f"https://t.me/{app.username}?startgroup=true",
+                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ 📢", url="https://t.me/TgMusicBots"),
+            InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ 💬", url="https://t.me/SunoBotUpdates"),
         ],
     ]
 
@@ -85,8 +85,8 @@ def stream_markup(_, chat_id):
             InlineKeyboardButton(text="▢", callback_data=f"ADMIN Stop|{chat_id}"),
         ],
         [
-            InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ", url="https://t.me/TgMusicBots"),
-            InlineKeyboardButton(text="ᴀᴅᴅ ɪᴛ",url=f"https://t.me/{app.username}?startgroup=true",
+                        InlineKeyboardButton(text="ᴜᴘᴅᴀᴛᴇꜱ 📢", url="https://t.me/TgMusicBots"),
+            InlineKeyboardButton(text="ꜱᴜᴘᴘᴏʀᴛ 💬", url="https://t.me/SunoBotUpdates"),
         ],
     ]
 
