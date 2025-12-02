@@ -16,8 +16,12 @@ BOT_TOKEN = getenv("BOT_TOKEN")
 # Get your mongo url from cloud.mongodb.com
 MONGO_DB_URI = getenv("MONGO_DB_URI", None)
 
+# Vars For API End Pont.
+YTPROXY_URL = getenv("YTPROXY_URL", 'https://tgapi.xbitcode.com') ## xBit Music Endpoint.
+YT_API_KEY = getenv("YT_API_KEY" , "xbit_Z40UQMGPMUSLT99508XYKG" ) ## Your API key like: xbit_10000000xx0233 Get from  https://t.me/tgmusic_apibot
+
 ## Other vaes
-DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 800))
+DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 300))
 
 # Chat id of a group for logging bot's activities
 LOGGER_ID = int(getenv("LOGGER_ID"))
@@ -37,15 +41,15 @@ API_KEY = getenv("API_KEY", "30DxNexGenBots5b668a")
 
 UPSTREAM_REPO = getenv(
     "UPSTREAM_REPO",
-    "https://files.catbox.moe/o0e6tn.mp4",
+    "https://github.com/Vivek12-0/Apple",
 )
 UPSTREAM_BRANCH = getenv("UPSTREAM_BRANCH", "main")
 GIT_TOKEN = getenv(
     "GIT_TOKEN", None
 )  # Fill this variable if your upstream repository is private
 
-SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/SunoBotUpdates")
-SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/TgMusicBots")
+SUPPORT_CHANNEL = getenv("SUPPORT_CHANNEL", "https://t.me/BOTADDA")
+SUPPORT_CHAT = getenv("SUPPORT_CHAT", "https://t.me/BOTADA")
 
 # Set this to True if you want the assistant to automatically leave chats after an interval
 AUTO_LEAVING_ASSISTANT = bool(getenv("AUTO_LEAVING_ASSISTANT", False))
@@ -89,21 +93,21 @@ autoclean = []
 confirmer = {}
 file_cache: dict[str, float] = {}
 
-START_IMG_URL = ["https://ibb.co/hJFb5nyL",
-                 "https://ibb.co/hJFb5nyL",
-                 "https://ibb.co/hJFb5nyL"]
-    
+START_IMG_URL = ["https://te.legra.ph/file/5fd13f2cc0d03bce9f7f2.jpg",
+                 "https://te.legra.ph/file/c15d01b3e6b40ea141dc9.jpg",
+                 "https://te.legra.ph/file/5fd13f2cc0d03bce9f7f2.jpg"]
+
 PING_IMG_URL = getenv(
-    "PING_IMG_URL", "https://files.catbox.moe/twy3oc.jpg"
+    "PING_IMG_URL", "https://telegra.ph/file/87f680aead03443f291b0.jpg"
 )
-PLAYLIST_IMG_URL = "https://files.catbox.moe/7dzhx6.jpg"
-STATS_IMG_URL = "https://files.catbox.moe/7dzhx6.jpg"
-TELEGRAM_AUDIO_URL = "https://files.catbox.moe/8a149o.jpg"
-TELEGRAM_VIDEO_URL = "https://files.catbox.moe/g25ujr.jpg"
-STREAM_IMG_URL = "https://files.catbox.moe/rp792b.jpg"
-SOUNCLOUD_IMG_URL = "https://files.catbox.moe/8a149o.jpg"
-YOUTUBE_IMG_URL = "https://files.catbox.moe/twy3oc.jpg"
-SPOTIFY_ARTIST_IMG_URL = "https://files.catbox.moe/8a149o.jpg"
+PLAYLIST_IMG_URL = "https://graph.org/file/c95a687e777b55be1c792.jpg"
+STATS_IMG_URL = "https://telegra.ph/file/edd388a42dd2c499fd868.jpg"
+TELEGRAM_AUDIO_URL = "https://telegra.ph/file/492a3bb2e880d19750b79.jpg"
+TELEGRAM_VIDEO_URL = "https://telegra.ph/file/492a3bb2e880d19750b79.jpg"
+STREAM_IMG_URL = "https://graph.org/file/ff2af8d4d10afa1baf49e.jpg"
+SOUNCLOUD_IMG_URL = "https://graph.org/file/c95a687e777b55be1c792.jpg"
+YOUTUBE_IMG_URL = "https://graph.org/file/e8730fdece86a1166f608.jpg"
+SPOTIFY_ARTIST_IMG_URL = "https://graph.org/file/0bb6f36796d496b4254ff.jpg"
 SPOTIFY_ALBUM_IMG_URL = "https://graph.org/file/0bb6f36796d496b4254ff.jpg"
 SPOTIFY_PLAYLIST_IMG_URL = "https://graph.org/file/0bb6f36796d496b4254ff.jpg"
 
