@@ -42,9 +42,9 @@ TEXT_WHITE = (255, 255, 255, 255)
 TEXT_SOFT = (240, 240, 240, 255)
 TEXT_SHADOW = (0, 0, 0, 180)
 
-FONT_REGULAR_PATH = "ShrutiMusic/assets/font2.ttf"
-FONT_BOLD_PATH = "ShrutiMusic/assets/font3.ttf"
-DEFAULT_THUMB = "ShrutiMusic/assets/ShrutiBots.jpg"
+FONT_REGULAR_PATH = "AnonXMusic/assets/font2.ttf"
+FONT_BOLD_PATH = "AnonXMusic/assets/font3.ttf"
+DEFAULT_THUMB = "AnonXMusic/assets/TgMusicBots.jpg"
 
 
 def change_image_size(max_w, max_h, image):
@@ -154,10 +154,10 @@ async def gen_thumb(videoid: str):
         print(f"[gen_thumb Error - Using Default] {e}")
         try:
             base_img = Image.open(DEFAULT_THUMB).convert("RGBA")
-            title = "ShrutiMusic"
+            title = "AnonXMusic"
             duration = "Unknown"
             views = "Unknown Views"
-            channel = "ShrutiBots"
+            channel = "TgMusicBots"
         except:
             traceback.print_exc()
             return None
@@ -222,8 +222,8 @@ async def gen_thumb(videoid: str):
 
         tl_font = ImageFont.truetype(FONT_BOLD_PATH, 40)
         tl_shadow_offset = 3
-        draw.text((35+tl_shadow_offset, 25+tl_shadow_offset), "ShrutiMusic", fill=(0, 0, 0, 200), font=tl_font)
-        draw.text((35, 25), "ShrutiMusic", fill=TEXT_WHITE, font=tl_font)
+        draw.text((35+tl_shadow_offset, 25+tl_shadow_offset), "AnonXMusic", fill=(0, 0, 0, 200), font=tl_font)
+        draw.text((35, 25), "AnonXMusic", fill=TEXT_WHITE, font=tl_font)
 
         info_x = circle_x + thumb_size + 70
         max_text_w = CANVAS_W - info_x - 60
