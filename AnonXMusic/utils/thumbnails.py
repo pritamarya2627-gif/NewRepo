@@ -1,11 +1,15 @@
 import os
-import aiohttp
+import re
+
 import aiofiles
-import traceback
-from pathlib import Path
-from PIL import Image, ImageDraw, ImageFilter, ImageFont, ImageEnhance
-from py_yt import VideosSearch
-from colorsys import rgb_to_hsv, hsv_to_rgb
+import aiohttp
+import numpy as np
+from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont
+from unidecode import unidecode
+from youtubesearchpython.__future__ import VideosSearch
+
+from AnonXMusic import app
+from config import YOUTUBE_IMG_URL
 
 CACHE_DIR = Path("cache")
 CACHE_DIR.mkdir(exist_ok=True)
