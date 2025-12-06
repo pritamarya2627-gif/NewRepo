@@ -101,7 +101,7 @@ async def stream(
                     )
                 except:
                     raise AssistantErr(_["play_14"])
-                await Nand.join_call(
+                await Anony.join_call(
                     chat_id,
                     original_chat_id,
                     file_path,
@@ -195,7 +195,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Nand.join_call(
+            await Anony.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -255,7 +255,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Nand.join_call(chat_id, original_chat_id, file_path, video=None)
+            await Anony.join_call(chat_id, original_chat_id, file_path, video=None)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -307,7 +307,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Nand.join_call(chat_id, original_chat_id, file_path, video=status)
+            await Anony.join_call(chat_id, original_chat_id, file_path, video=status)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -363,7 +363,7 @@ async def stream(
             n, file_path = await YouTube.video(link)
             if n == 0:
                 raise AssistantErr(_["str_3"])
-            await Nand.join_call(
+            await Anony.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -421,7 +421,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Nand.join_call(
+            await Anony.join_call(
                 chat_id,
                 original_chat_id,
                 link,
