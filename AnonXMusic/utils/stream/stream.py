@@ -1,3 +1,25 @@
+# Copyright (c) 2025 Nand Yaduwanshi <NoxxOP>
+# Location: Supaul, Bihar
+#
+# All rights reserved.
+#
+# This code is the intellectual property of Nand Yaduwanshi.
+# You are not allowed to copy, modify, redistribute, or use this
+# code for commercial or personal projects without explicit permission.
+#
+# Allowed:
+# - Forking for personal learning
+# - Submitting improvements via pull requests
+#
+# Not Allowed:
+# - Claiming this code as your own
+# - Re-uploading without credit or permission
+# - Selling or using commercially
+#
+# Contact for permissions:
+# Email: badboy809075@gmail.com
+
+
 import os
 from random import randint
 from typing import Union
@@ -5,15 +27,15 @@ from typing import Union
 from pyrogram.types import InlineKeyboardMarkup
 
 import config
-from AnonXMusic import Carbon, YouTube, app
-from AnonXMusic.core.call import Anony
-from AnonXMusic.misc import db
-from AnonXMusic.utils.database import add_active_video_chat, is_active_chat
-from AnonXMusic.utils.exceptions import AssistantErr
-from AnonXMusic.utils.inline import aq_markup, close_markup, stream_markup
-from AnonXMusic.utils.pastebin import AnonyBin
-from AnonXMusic.utils.stream.queue import put_queue, put_queue_index
-from AnonXMusic.utils.thumbnails import get_thumb
+from ShrutiMusic import Carbon, YouTube, app
+from ShrutiMusic.core.call import Nand
+from ShrutiMusic.misc import db
+from ShrutiMusic.utils.database import add_active_video_chat, is_active_chat
+from ShrutiMusic.utils.exceptions import AssistantErr
+from ShrutiMusic.utils.inline import aq_markup, close_markup, stream_markup
+from ShrutiMusic.utils.pastebin import NandBin
+from ShrutiMusic.utils.stream.queue import put_queue, put_queue_index
+from ShrutiMusic.utils.thumbnails import gen_thumb
 
 
 async def stream(
@@ -32,7 +54,7 @@ async def stream(
     if not result:
         return
     if forceplay:
-        await Anony.force_stop_stream(chat_id)
+        await Nand.force_stop_stream(chat_id)
     if streamtype == "playlist":
         msg = f"{_['play_19']}\n\n"
         count = 0
@@ -79,7 +101,7 @@ async def stream(
                     )
                 except:
                     raise AssistantErr(_["play_14"])
-                await Anony.join_call(
+                await Nand.join_call(
                     chat_id,
                     original_chat_id,
                     file_path,
@@ -98,7 +120,7 @@ async def stream(
                     "video" if video else "audio",
                     forceplay=forceplay,
                 )
-                img = await get_thumb(vidid,user_id)
+                img = await gen_thumb(vidid)
                 button = stream_markup(_, chat_id)
                 run = await app.send_photo(
                     original_chat_id,
@@ -116,7 +138,7 @@ async def stream(
         if count == 0:
             return
         else:
-            link = await AnonyBin(msg)
+            link = await NandBin(msg)
             lines = msg.count("\n")
             if lines >= 17:
                 car = os.linesep.join(msg.split(os.linesep)[:17])
@@ -137,12 +159,20 @@ async def stream(
         duration_min = result["duration_min"]
         thumbnail = result["thumb"]
         status = True if video else None
+    
+        current_queue = db.get(chat_id)
+
+        
+        if current_queue is not None and len(current_queue) >= 10:
+            return await app.send_message(original_chat_id, "You can't add more than 10 songs to the queue.")
+
         try:
             file_path, direct = await YouTube.download(
                 vidid, mystic, videoid=True, video=status
             )
         except:
             raise AssistantErr(_["play_14"])
+
         if await is_active_chat(chat_id):
             await put_queue(
                 chat_id,
@@ -165,7 +195,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Anony.join_call(
+            await Nand.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -184,7 +214,7 @@ async def stream(
                 "video" if video else "audio",
                 forceplay=forceplay,
             )
-            img = await get_thumb(vidid,user_id)
+            img = await gen_thumb(vidid)
             button = stream_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
@@ -225,7 +255,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Anony.join_call(chat_id, original_chat_id, file_path, video=None)
+            await Nand.join_call(chat_id, original_chat_id, file_path, video=None)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -243,7 +273,7 @@ async def stream(
                 original_chat_id,
                 photo=config.SOUNCLOUD_IMG_URL,
                 caption=_["stream_1"].format(
-                    config.SUPPORT_CHAT, title[:23], duration_min, user_name
+                    config.SUPPORT_GROUP, title[:23], duration_min, user_name
                 ),
                 reply_markup=InlineKeyboardMarkup(button),
             )
@@ -277,7 +307,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Anony.join_call(chat_id, original_chat_id, file_path, video=status)
+            await Nand.join_call(chat_id, original_chat_id, file_path, video=status)
             await put_queue(
                 chat_id,
                 original_chat_id,
@@ -333,7 +363,7 @@ async def stream(
             n, file_path = await YouTube.video(link)
             if n == 0:
                 raise AssistantErr(_["str_3"])
-            await Anony.join_call(
+            await Nand.join_call(
                 chat_id,
                 original_chat_id,
                 file_path,
@@ -352,7 +382,7 @@ async def stream(
                 "video" if video else "audio",
                 forceplay=forceplay,
             )
-            img = await get_thumb(vidid,user_id)
+            img = await gen_thumb(vidid)
             button = stream_markup(_, chat_id)
             run = await app.send_photo(
                 original_chat_id,
@@ -391,7 +421,7 @@ async def stream(
         else:
             if not forceplay:
                 db[chat_id] = []
-            await Anony.join_call(
+            await Nand.join_call(
                 chat_id,
                 original_chat_id,
                 link,
@@ -418,3 +448,15 @@ async def stream(
             db[chat_id][0]["mystic"] = run
             db[chat_id][0]["markup"] = "tg"
             await mystic.delete()
+
+
+# ©️ Copyright Reserved - @NoxxOP  Nand Yaduwanshi
+
+# ===========================================
+# ©️ 2025 Nand Yaduwanshi (aka @NoxxOP)
+# 🔗 GitHub : https://github.com/NoxxOP/ShrutiMusic
+# 📢 Telegram Channel : https://t.me/ShrutiBots
+# ===========================================
+
+
+# ❤️ Love From ShrutiBots 
